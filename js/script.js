@@ -1,11 +1,17 @@
 // js dopiero po załadowaniu DOMa
+
 document.addEventListener("DOMContentLoaded", function() {
 	
 	// nadawanie stringów
 	function randomString() {
-		var str = 300;
+		var chars = "0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ";
+		var str = "a";
+		for (var i = 0; i < 10; i++) {
+			var rand = chars[Math.floor(Math.random() * chars.length)];
+			str += chars[Math.floor(Math.random() * chars.length)];
+		}
+		return str;
 	}
-
 	// używanie Mustache
 	function generateTemplate(name, data, basicElement) {
 		var template = document.getElementById(name).innerHTML;
